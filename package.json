@@ -1,0 +1,216 @@
+{
+  "name": "cyclops",
+  "starters": [
+    "basics",
+    "babel",
+    "babel-node",
+    "babel-scripts",
+    "eslint",
+    "husky",
+    "jest",
+    "jest-node",
+    "jest-scripts",
+    "watchman-babel"
+  ],
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    ""
+  ],
+  "author": " <>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com//.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com//#readme",
+  "dependencies": {
+    "@babel/runtime": "7.0.0-beta.42",
+    "@dot-store/argv": "0.0.1",
+    "@dot-store/glob": "0.0.1",
+    "@dot-store/spawn": "0.0.1",
+    "dot-store": "^3.0.2",
+    "fs-extra": "^7.0.0",
+    "pkg-up": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.42",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/preset-env": "7.0.0-beta.42",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.42",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.42",
+    "@babel/plugin-transform-runtime": "7.0.0-beta.42",
+    "rimraf": "^2.6.2",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "prettier": "^1.14.0",
+    "husky": "1.0.0-rc.13",
+    "lint-staged": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "jest": "23.4.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "6.14"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel lib --out-dir dist --source-maps",
+    "prepublishOnly": "rimraf dist; npm run build",
+    "watch": "rimraf dist; babel lib --watch --out-dir dist --source-maps",
+    "fix": "npm run lint -- --fix",
+    "lint": "eslint --ignore-path .gitignore --ext=js .",
+    "pretty": "prettier --write **/*.css **/*.json **/*.md",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      },
+      "ecmaVersion": 8,
+      "sourceType": "module"
+    },
+    "rules": {
+      "curly": "error",
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 60,
+          "ignoreRegExpLiterals": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true
+        }
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "react/display-name": "off",
+      "react/no-find-dom-node": "off",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "semi": [
+        "error",
+        "never"
+      ],
+      "sort-keys": [
+        "error",
+        "asc",
+        {
+          "caseSensitive": true,
+          "natural": false
+        }
+      ],
+      "sort-vars": [
+        "error",
+        {
+          "ignoreCase": true
+        }
+      ],
+      "strict": 0
+    }
+  },
+  "prettier": {
+    "printWidth": 60,
+    "semi": false,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --ignore-path .gitignore --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/*Test.js"
+    ],
+    "testEnvironment": "node"
+  },
+  "links": {
+    "dot-store": "../../dot-store/packages/dot-store-core",
+    "@dot-store/argv": "../dot-store-argv",
+    "@dot-store/glob": "../dot-store-glob",
+    "@dot-store/spawn": "../dot-store-spawn"
+  },
+  "watchman": {
+    "triggers": [
+      {
+        "name": "babel",
+        "expression": [
+          "anyof",
+          [
+            "match",
+            "lib/**/*.js",
+            "wholename"
+          ]
+        ],
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ]
+      }
+    ]
+  }
+}
