@@ -23,7 +23,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/cyclops-tasks/cyclops.git"
   },
-  "main": "dist/index.js",
+  "main": "dist/cyclops.js",
   "bin": {
     "cyclops": "./bin/cyclops",
     "cyc": "./bin/cyclops"
