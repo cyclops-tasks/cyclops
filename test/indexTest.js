@@ -25,7 +25,6 @@ test("run task", async () => {
         [taskIds[0]]: {
           paths: {
             bin: `${__dirname}/fixture/project-a/node_modules/module-a/lib/a.js`,
-            link: `${__dirname}/fixture/project-a/node_modules/.bin/task`,
             pkg: `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
             project: `${__dirname}/fixture/project-a`,
             task: `${__dirname}/fixture/project-a/node_modules/module-a`,
