@@ -38,7 +38,6 @@ test("run task", async () => {
       cyclops: {
         ignore: ["**/node_modules/**"],
         paths: [
-          `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
           `${__dirname}/fixture/project-a/package.json`,
         ],
         pattern: `${__dirname}/fixture/**/package.json`,
