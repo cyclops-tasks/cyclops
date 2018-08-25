@@ -2,11 +2,12 @@ import { createStore, run } from "../dist/cyclops"
 
 async function runTask() {
   const store = createStore()
-  await store.set("cyclops.options", {
-    _: ["task"],
+  await run({
+    argv: false,
     path: `${__dirname}/fixture`,
+    store,
+    task: "task",
   })
-  await run(store)
   return store
 }
 
