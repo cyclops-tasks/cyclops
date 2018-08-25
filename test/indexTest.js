@@ -30,7 +30,7 @@ test("run task", async () => {
             project: `${__dirname}/fixture/project-a`,
             task: `${__dirname}/fixture/project-a/node_modules/module-a`,
           },
-          ran: true,
+          ran: true, // set from test task
         },
       },
     },
