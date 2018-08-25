@@ -31,8 +31,7 @@
     "@dot-store/spawn": "0.0.1",
     "dot-store": "^3.0.2",
     "fs-extra": "^7.0.0",
-    "pkg-up": "^2.0.0",
-    "uuid": "^3.3.2"
+    "pkg-up": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.42",
@@ -176,7 +175,7 @@
     ],
     "*.js": [
       "eslint --ignore-path .gitignore --fix",
-      "git add"
+      "git add -f"
     ]
   },
   "jest": {
