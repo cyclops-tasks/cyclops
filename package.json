@@ -31,26 +31,27 @@
     "@dot-store/spawn": "0.0.1",
     "dot-store": "^3.0.2",
     "fs-extra": "^7.0.0",
-    "pkg-up": "^2.0.0"
+    "pkg-up": "^2.0.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.42",
     "@babel/core": "7.0.0-beta.42",
-    "@babel/preset-env": "7.0.0-beta.42",
     "@babel/plugin-proposal-class-properties": "7.0.0-beta.42",
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.42",
     "@babel/plugin-transform-runtime": "7.0.0-beta.42",
-    "rimraf": "^2.6.2",
+    "@babel/preset-env": "7.0.0-beta.42",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.6",
     "eslint": "^5.2.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
-    "prettier": "^1.14.0",
     "husky": "1.0.0-rc.13",
+    "jest": "23.4.2",
     "lint-staged": "^7.2.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "jest": "23.4.2"
+    "prettier": "^1.14.0",
+    "rimraf": "^2.6.2"
   },
   "babel": {
     "presets": [
