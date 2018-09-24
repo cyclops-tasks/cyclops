@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 require("../dist/cyclops")
-  .run()
+  .composeStore()
+  .cyclops({ argv: process.argv.slice(2) })
   .catch(function(e) {
     console.error(e)
     process.exit(1)
