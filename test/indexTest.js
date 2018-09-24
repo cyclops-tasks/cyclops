@@ -24,12 +24,12 @@ test("run task", async () => {
     path: `${__dirname}/fixture`,
     tasks: {
       [taskIds[0]]: {
-        binPath: `${__dirname}/fixture/project-a/node_modules/module-a/lib/a.js`,
-        pkgPath: `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
         projectPath: `${__dirname}/fixture/project-a`,
         projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
         ran: true,
+        taskBinPath: `${__dirname}/fixture/project-a/node_modules/module-a/lib/a.js`,
         taskPath: `${__dirname}/fixture/project-a/node_modules/module-a`,
+        taskPkgPath: `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
       },
     },
   })

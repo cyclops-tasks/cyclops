@@ -32,7 +32,7 @@
   "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@cyclops-tasks/npm": "^0.1.0",
+    "@cyclops-tasks/npm": "^0.2.0",
     "@dot-store/argv": "^1.0.0",
     "@dot-store/glob": "^1.0.0",
     "@dot-store/spawn": "^1.0.0",
