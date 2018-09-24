@@ -2,7 +2,10 @@
 
 require("../dist/cyclops")
   .composeStore()
-  .cyclops({ argv: process.argv.slice(2) })
+  .cyclops({
+    argv: process.argv.slice(2),
+    path: process.cwd()
+  })
   .catch(function(e) {
     console.error(e)
     process.exit(1)
