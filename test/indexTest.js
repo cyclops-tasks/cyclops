@@ -27,6 +27,7 @@ test("run task", async () => {
         binPath: `${__dirname}/fixture/project-a/node_modules/module-a/lib/a.js`,
         pkgPath: `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
         projectPath: `${__dirname}/fixture/project-a`,
+        projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
         ran: true,
         taskPath: `${__dirname}/fixture/project-a/node_modules/module-a`,
       },
