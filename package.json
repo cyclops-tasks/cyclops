@@ -32,12 +32,14 @@
   "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@cyclops-tasks/npm": "^0.2.0",
+    "@cyclops-tasks/npm": "^0.2.1",
     "@dot-store/argv": "^1.0.0",
     "@dot-store/glob": "^1.0.0",
     "@dot-store/spawn": "^1.0.0",
     "dot-store": "^4.6.0",
     "fs-extra": "^7.0.0",
+    "ink": "^0.5.1",
+    "ink-spinner": "^2.0.0",
     "pkg-up": "^2.0.0"
   },
   "devDependencies": {
@@ -45,6 +47,7 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
@@ -73,7 +76,13 @@
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
-      "@babel/plugin-transform-runtime"
+      "@babel/plugin-transform-runtime",
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "pragma": "h"
+        }
+      ]
     ]
   },
   "scripts": {
@@ -133,6 +142,13 @@
             "warn",
             "error"
           ]
+        }
+      ],
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "h",
+          "varsIgnorePattern": "h"
         }
       ],
       "quotes": [
