@@ -22,8 +22,10 @@ test("run task", async () => {
       `${__dirname}/fixture/project-a/package.json`,
     ],
     path: `${__dirname}/fixture`,
+    taskCounter: 1,
     tasks: {
       [taskIds[0]]: {
+        complete: true,
         projectPath: `${__dirname}/fixture/project-a`,
         projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
         ran: true,

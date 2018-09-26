@@ -36,10 +36,12 @@
     "@dot-store/argv": "^1.0.0",
     "@dot-store/glob": "^1.0.0",
     "@dot-store/spawn": "^1.0.0",
-    "dot-store": "^4.6.0",
+    "dot-store": "^4.7.0",
     "fs-extra": "^7.0.0",
     "ink": "^0.5.1",
     "ink-spinner": "^2.0.0",
+    "ink-table": "^1.0.3",
+    "ink-text-animation": "^0.1.0",
     "pkg-up": "^2.0.0"
   },
   "devDependencies": {
