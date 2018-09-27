@@ -9,30 +9,20 @@ async function runTask() {
   return store
 }
 
-test("run task", async () => {
+test("call composer", async () => {
   const store = await runTask()
-  const tasks = store.get("tasks")
-  const taskIds = Object.keys(tasks)
 
   expect(store.state).toEqual({
     argv: {
       _: ["task"],
     },
+    composer: {
+      called: true,
+    },
     packageJsonPaths: [
       `${__dirname}/fixture/project-a/package.json`,
     ],
     path: `${__dirname}/fixture`,
-    taskCounter: 1,
-    tasks: {
-      [taskIds[0]]: {
-        complete: true,
-        projectPath: `${__dirname}/fixture/project-a`,
-        projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
-        ran: true,
-        taskBinPath: `${__dirname}/fixture/project-a/node_modules/module-a/lib/a.js`,
-        taskPath: `${__dirname}/fixture/project-a/node_modules/module-a`,
-        taskPkgPath: `${__dirname}/fixture/project-a/node_modules/module-a/package.json`,
-      },
-    },
+    taskCounter: 0,
   })
 })

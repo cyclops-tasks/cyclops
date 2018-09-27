@@ -35,7 +35,6 @@
     "@cyclops-tasks/npm": "^0.2.1",
     "@dot-store/argv": "^1.0.0",
     "@dot-store/glob": "^1.0.0",
-    "@dot-store/spawn": "^1.0.0",
     "dot-store": "^4.7.0",
     "fs-extra": "^7.0.0",
     "ink": "^0.5.1",
