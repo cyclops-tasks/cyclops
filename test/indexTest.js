@@ -23,6 +23,5 @@ test("call composer", async () => {
       `${__dirname}/fixture/project-a/package.json`,
     ],
     path: `${__dirname}/fixture`,
-    taskCounter: 0,
   })
 })
