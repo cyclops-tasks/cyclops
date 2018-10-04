@@ -12,7 +12,7 @@ async function runTask() {
 test("call composer", async () => {
   const store = await runTask()
 
-  expect(store.state).toEqual({
+  expect(store.state).toMatchObject({
     argv: {
       _: ["task"],
     },
