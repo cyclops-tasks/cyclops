@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 
+const dotEvent = require("dot-event").default
+const dotStore = require("dot-store").default
+
+const events = dotEvent()
+const store = dotStore(events)
+
 require("../dist/cyclops")
-  .composeStore()
   .cyclops({
     argv: process.argv.slice(2),
-    path: process.cwd()
+    events,
+    path: process.cwd(),
+    store
   })
   .catch(function(e) {
     console.error(e)

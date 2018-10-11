@@ -1,16 +1,24 @@
-import { composeStore } from "../dist/cyclops"
+import dotEvent from "dot-event"
+import dotStore from "dot-store"
+
+import { cyclops } from "../dist/cyclops"
 
 async function runTask() {
-  const store = composeStore()
-  await store.cyclops({
+  const events = dotEvent()
+  const store = dotStore(events)
+
+  await cyclops({
     argv: ["task"],
+    events,
     path: `${__dirname}/fixture`,
+    store,
   })
-  return store
+
+  return { events, store }
 }
 
 test("call composer", async () => {
-  const store = await runTask()
+  const { store } = await runTask()
 
   expect(store.state).toMatchObject({
     argv: {
@@ -19,9 +27,11 @@ test("call composer", async () => {
     composer: {
       called: true,
     },
-    packageJsonPaths: [
-      `${__dirname}/fixture/project-a/package.json`,
-    ],
+    glob: {
+      packageJsonPaths: [
+        `${__dirname}/fixture/project-a/package.json`,
+      ],
+    },
     path: `${__dirname}/fixture`,
   })
 })

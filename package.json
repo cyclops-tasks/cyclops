@@ -32,10 +32,10 @@
   "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@cyclops-tasks/npm": "^0.2.1",
-    "@dot-store/argv": "^1.0.0",
-    "@dot-store/glob": "^1.0.0",
-    "dot-store": "^4.8.0",
+    "@dot-store/argv": "^2.1.0",
+    "@dot-store/glob": "^2.1.0",
+    "dot-event": "^2.3.0",
+    "dot-store": "^5.3.0",
     "fs-extra": "^7.0.0",
     "pkg-up": "^2.0.0"
   },
@@ -55,6 +55,7 @@
     "husky": "1.0.0-rc.15",
     "jest": "^23.6.0",
     "lint-staged": "^7.3.0",
+    "pkg-tasks": "^0.1.1",
     "prettier": "^1.14.3",
     "rimraf": "^2.6.2"
   },
@@ -200,11 +201,12 @@
     "testEnvironment": "node"
   },
   "links": {
+    "dot-event": "../../dot-event",
     "dot-store": "../../dot-store-core",
     "@dot-store/argv": "../dot-store-argv",
     "@dot-store/glob": "../dot-store-glob",
     "@dot-store/spawn": "../dot-store-spawn",
-    "@cyclops-tasks/npm": "../cyclops-npm"
+    "pkg-tasks": "../cyclops-npm"
   },
   "watchman": {
     "triggers": [
