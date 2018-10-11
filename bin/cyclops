@@ -2,18 +2,18 @@
 
 const dotEvent = require("dot-event").default
 const dotStore = require("dot-store").default
+const cyclops = require("../dist/cyclops")
 
 const events = dotEvent()
 const store = dotStore(events)
 
-require("../dist/cyclops")
-  .cyclops({
-    argv: process.argv.slice(2),
-    events,
-    path: process.cwd(),
-    store
-  })
-  .catch(function(e) {
-    console.error(e)
-    process.exit(1)
-  })
+cyclops({ events, store })
+
+events.cyclops({
+  argv: process.argv.slice(2),
+  path: process.cwd()
+})
+.catch(function(e) {
+  console.error(e)
+  process.exit(1)
+})
