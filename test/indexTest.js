@@ -10,8 +10,12 @@ async function runTask() {
   cyclops({ events, store })
 
   await events.cyclops({
-    argv: ["task"],
+    argv: [],
+    composer: ({ store }) => {
+      store.set("composer.called", true)
+    },
     path: `${__dirname}/fixture`,
+    task: "fixture-tasks",
   })
 
   return { events, store }
@@ -21,9 +25,7 @@ test("call composer", async () => {
   const { store } = await runTask()
 
   expect(store.state).toMatchObject({
-    argv: {
-      _: ["task"],
-    },
+    argv: {},
     composer: {
       called: true,
     },
@@ -32,5 +34,7 @@ test("call composer", async () => {
         `${__dirname}/fixture/project-a/package.json`,
       ],
     },
+    taskCount: 1,
+    taskIds: ["project-a"],
   })
 })
