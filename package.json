@@ -1,17 +1,5 @@
 {
   "name": "cyclops",
-  "starters": [
-    "basics",
-    "babel",
-    "babel-node",
-    "babel-scripts",
-    "eslint",
-    "husky",
-    "jest",
-    "jest-node",
-    "jest-scripts",
-    "watchman-babel"
-  ],
   "version": "1.2.0",
   "description": "Sentient task runner",
   "keywords": [
@@ -26,6 +14,21 @@
   "main": "dist/cyclops.js",
   "license": "MIT",
   "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
+  "cyclops": {
+    "version-tasks": {}
+  },
+  "starters": [
+    "basics",
+    "babel",
+    "babel-node",
+    "babel-scripts",
+    "eslint",
+    "husky",
+    "jest",
+    "jest-node",
+    "jest-scripts",
+    "watchman-babel"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@dot-store/argv": "^2.2.0",
