@@ -27,10 +27,10 @@ test("emits events", async () => {
   const actions = []
 
   events.on({
-    "cyclops.fixture-tasks.afterAll": () =>
-      actions.push("afterAll"),
-    "cyclops.fixture-tasks.beforeAll": () =>
-      actions.push("beforeAll"),
+    "cyclops.fixture-tasks.afterTask": () =>
+      actions.push("afterTask"),
+    "cyclops.fixture-tasks.beforeTask": () =>
+      actions.push("beforeTask"),
     "cyclops.fixture-tasks.patch": () =>
       actions.push("patch"),
     "cyclops.fixture-tasks.task": () =>
@@ -39,7 +39,11 @@ test("emits events", async () => {
 
   await runTask()
 
-  expect(actions).toEqual(["beforeAll", "task", "afterAll"])
+  expect(actions).toEqual([
+    "beforeTask",
+    "task",
+    "afterTask",
+  ])
 })
 
 test("sets state", async () => {
