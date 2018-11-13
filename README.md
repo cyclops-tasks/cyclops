@@ -6,11 +6,11 @@ Sentient task runner.
 
 | Phases                         |
 | ------------------------------ |
-| `cyclops.beforeAll`            |
+| `cyclops.my-tasks.beforeAll`   |
 | `cyclops.my-tasks.beforePatch` |
 | `cyclops.my-tasks.patch`       |
 | `cyclops.my-tasks.afterPatch`  |
 | `cyclops.my-tasks.beforeTask`  |
 | `cyclops.my-tasks.task`        |
 | `cyclops.my-tasks.afterTask`   |
-| `cyclops.afterAll`             |
+| `cyclops.my-tasks.afterAll`    |

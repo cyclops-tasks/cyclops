@@ -27,8 +27,10 @@ test("emits events", async () => {
   const actions = []
 
   events.on({
-    "cyclops.afterAll": () => actions.push("afterAll"),
-    "cyclops.beforeAll": () => actions.push("beforeAll"),
+    "cyclops.fixture-tasks.afterAll": () =>
+      actions.push("afterAll"),
+    "cyclops.fixture-tasks.beforeAll": () =>
+      actions.push("beforeAll"),
     "cyclops.fixture-tasks.patch": () =>
       actions.push("patch"),
     "cyclops.fixture-tasks.task": () =>
