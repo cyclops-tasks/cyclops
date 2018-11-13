@@ -39,7 +39,7 @@
     "@dot-store/glob": "2.2.0",
     "dot-event": "2.8.0",
     "dot-store": "5.4.0",
-    "fs-extra": "7.0.0",
+    "fs-extra": "7.0.1",
     "pkg-up": "2.0.0"
   },
   "devDependencies": {
