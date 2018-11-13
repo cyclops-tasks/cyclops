@@ -3,12 +3,16 @@ import dotStore from "dot-store"
 
 import cyclops from "../dist/cyclops"
 
-async function runTask() {
-  const events = dotEvent()
-  const store = dotStore(events)
+let events, store
+
+beforeEach(() => {
+  events = dotEvent()
+  store = dotStore(events)
 
   cyclops({ events, store })
+})
 
+async function runTask() {
   await events.cyclops({
     argv: [],
     composer: ({ store }) => {
@@ -17,12 +21,27 @@ async function runTask() {
     path: `${__dirname}/fixture`,
     task: "fixture-tasks",
   })
-
-  return { events, store }
 }
 
-test("call composer", async () => {
-  const { store } = await runTask()
+test("emits events", async () => {
+  const actions = []
+
+  events.on({
+    "cyclops.afterAll": () => actions.push("afterAll"),
+    "cyclops.beforeAll": () => actions.push("beforeAll"),
+    "cyclops.fixture-tasks.patch": () =>
+      actions.push("patch"),
+    "cyclops.fixture-tasks.task": () =>
+      actions.push("task"),
+  })
+
+  await runTask()
+
+  expect(actions).toEqual(["beforeAll", "task", "afterAll"])
+})
+
+test("sets state", async () => {
+  await runTask()
 
   expect(store.state).toMatchObject({
     argv: { cyclops: { _: [] } },
