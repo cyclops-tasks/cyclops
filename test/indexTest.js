@@ -9,17 +9,19 @@ beforeEach(() => {
   events = dotEvent()
   store = dotStore(events)
 
+  events.setOp("fixture")
+
   cyclops({ events, store })
 })
 
-async function runTask() {
+async function runTask(...argv) {
   await events.cyclops({
-    argv: [],
+    argv,
     composer: ({ store }) => {
-      store.set("cyclops.composer.called", true)
+      store.set("composer.called", true)
     },
+    op: "fixture",
     path: `${__dirname}/fixture`,
-    task: "fixture-tasks",
   })
 }
 
@@ -27,14 +29,9 @@ test("emits events", async () => {
   const actions = []
 
   events.on({
-    "after.cyclops.fixture-tasks.task": () =>
-      actions.push("afterTask"),
-    "before.cyclops.fixture-tasks.task": () =>
-      actions.push("beforeTask"),
-    "cyclops.fixture-tasks.patch": () =>
-      actions.push("patch"),
-    "cyclops.fixture-tasks.task": () =>
-      actions.push("task"),
+    "after.fixture": () => actions.push("afterTask"),
+    "before.fixture": () => actions.push("beforeTask"),
+    fixture: () => actions.push("task"),
   })
 
   await runTask()
@@ -46,13 +43,34 @@ test("emits events", async () => {
   ])
 })
 
+test("passes options to events", async () => {
+  expect.assertions(1)
+
+  events.on({
+    fixture: options =>
+      expect(Object.keys(options)).toEqual(
+        expect.arrayContaining([
+          "_",
+          "event",
+          "events",
+          "hello",
+          "store",
+          "taskId",
+          "task",
+        ])
+      ),
+  })
+
+  await runTask("--hello")
+})
+
 test("sets state", async () => {
   await runTask()
 
   expect(store.state).toMatchObject({
     argv: { cyclops: { _: [] } },
+    composer: { called: true },
     cyclops: {
-      composer: { called: true },
       packagePaths: [
         `${__dirname}/fixture/project-a/package.json`,
       ],
@@ -60,11 +78,10 @@ test("sets state", async () => {
       taskIds: ["project-a"],
       tasks: {
         "project-a": {
-          cyclops: { "fixture-tasks": {} },
-          cyclopsIds: ["fixture-tasks"],
+          cyclops: { fixture: {} },
+          cyclopsIds: ["fixture"],
           projectPath: `${__dirname}/fixture/project-a`,
           projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
-          task: "fixture-tasks",
           taskId: "project-a",
           taskIndex: 0,
         },
@@ -73,7 +90,7 @@ test("sets state", async () => {
     fs: {
       readJson: {
         cyclops: {
-          "project-a": { cyclops: { "fixture-tasks": {} } },
+          "project-a": { cyclops: { fixture: {} } },
         },
       },
     },
