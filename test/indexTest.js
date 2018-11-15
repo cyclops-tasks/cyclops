@@ -9,7 +9,11 @@ beforeEach(() => {
   events = dotEvent()
   store = dotStore(events)
 
-  events.setOp("fixture")
+  events.setOps(
+    "fixture",
+    "fixtureSetup",
+    "fixtureTeardown"
+  )
 
   cyclops({ events, store })
 })
@@ -29,17 +33,21 @@ test("emits events", async () => {
   const actions = []
 
   events.on({
-    "after.fixture": () => actions.push("afterTask"),
-    "before.fixture": () => actions.push("beforeTask"),
-    fixture: () => actions.push("task"),
+    "after.fixture": () => actions.push("after"),
+    "before.fixture": () => actions.push("before"),
+    fixture: () => actions.push("run"),
+    fixtureSetup: () => actions.push("setup"),
+    fixtureTeardown: () => actions.push("teardown"),
   })
 
   await runTask()
 
   expect(actions).toEqual([
-    "beforeTask",
-    "task",
-    "afterTask",
+    "setup",
+    "before",
+    "run",
+    "after",
+    "teardown",
   ])
 })
 
@@ -55,7 +63,6 @@ test("passes options to events", async () => {
           "events",
           "hello",
           "store",
-          "taskId",
           "task",
         ])
       ),
@@ -68,7 +75,7 @@ test("sets state", async () => {
   await runTask()
 
   expect(store.state).toMatchObject({
-    argv: { cyclops: { _: [] } },
+    argv: { opts: { _: [] }, raw: [] },
     composer: { called: true },
     cyclops: {
       packagePaths: [
