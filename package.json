@@ -15,10 +15,10 @@
   "license": "MIT",
   "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
   "cyclops": {
-    "git-tasks": {},
-    "link-tasks": {},
-    "starter-tasks": {},
-    "version-tasks": {}
+    "git": {},
+    "link": {},
+    "starter": {},
+    "version": {}
   },
   "starters": [
     "basics",

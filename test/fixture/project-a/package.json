@@ -1,5 +1,5 @@
 {
   "cyclops": {
-    "fixture": {}
+    "fixture": { "test": true }
   }
 }

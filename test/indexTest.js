@@ -22,7 +22,7 @@ async function runTask(...argv) {
   await events.cyclops({
     argv,
     composer: ({ store }) => {
-      store.set("composer.called", true)
+      store.set("test.composer", true)
     },
     op: "fixture",
     path: `${__dirname}/fixture`,
@@ -76,35 +76,25 @@ test("sets state", async () => {
 
   expect(store.state).toMatchObject({
     argv: { opts: { _: [] }, raw: [] },
-    composer: { called: true },
     cyclops: {
+      glob: [`${__dirname}/fixture/project-a/package.json`],
       packagePaths: [
         `${__dirname}/fixture/project-a/package.json`,
       ],
-      taskCount: 1,
-      taskIds: ["project-a"],
-      tasks: {
-        "project-a": {
-          cyclops: { fixture: {} },
-          cyclopsIds: ["fixture"],
-          projectPath: `${__dirname}/fixture/project-a`,
-          projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
-          taskId: "project-a",
-          taskIndex: 0,
-        },
+    },
+    taskCount: 1,
+    taskIds: ["project-a"],
+    tasks: {
+      "project-a": {
+        cyclops: { fixture: {} },
+        cyclopsIds: ["fixture"],
+        packageJson: { cyclops: { fixture: {} } },
+        projectPath: `${__dirname}/fixture/project-a`,
+        projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
+        taskId: "project-a",
+        taskIndex: 0,
       },
     },
-    fs: {
-      readJson: {
-        cyclops: {
-          "project-a": { cyclops: { fixture: {} } },
-        },
-      },
-    },
-    glob: {
-      cyclops: [
-        `${__dirname}/fixture/project-a/package.json`,
-      ],
-    },
+    test: { composer: true },
   })
 })
