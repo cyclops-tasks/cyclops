@@ -35,9 +35,9 @@
   "dependencies": {
     "@babel/runtime": "7.1.2",
     "@dot-store/argv": "2.2.0",
-    "@dot-store/fs": "^1.6.0",
+    "@dot-store/fs": "1.6.0",
     "@dot-store/glob": "2.2.0",
-    "@dot-store/log": "^0.8.0",
+    "@dot-store/log": "0.8.0",
     "dot-event": "2.8.0",
     "dot-store": "5.4.0",
     "fs-extra": "7.0.1",
