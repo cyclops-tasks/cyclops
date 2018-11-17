@@ -1,5 +1,5 @@
 {
-  "cyclops": {
+  "operations": {
     "fixture": { "test": true }
   }
 }

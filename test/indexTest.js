@@ -1,7 +1,7 @@
 import dotEvent from "dot-event"
 import dotStore from "dot-store"
 
-import cyclops from "../dist/cyclops"
+import dotTask from "../dist/task"
 
 let events, store
 
@@ -15,11 +15,11 @@ beforeEach(() => {
     "fixtureTeardown"
   )
 
-  cyclops({ events, store })
+  dotTask({ events, store })
 })
 
 async function runTask(...argv) {
-  await events.cyclops({
+  await events.task({
     argv,
     composer: ({ store }) => {
       store.set("test.composer", true)
@@ -76,19 +76,19 @@ test("sets state", async () => {
 
   expect(store.state).toMatchObject({
     argv: { opts: { _: [] }, raw: [] },
-    cyclops: {
-      glob: [`${__dirname}/fixture/project-a/package.json`],
-      packagePaths: [
+    task: {
+      taskCount: 1,
+      taskIds: ["project-a"],
+      taskPackagePaths: [
         `${__dirname}/fixture/project-a/package.json`,
       ],
     },
-    taskCount: 1,
-    taskIds: ["project-a"],
     tasks: {
       "project-a": {
-        cyclops: { fixture: {} },
-        cyclopsIds: ["fixture"],
-        packageJson: { cyclops: { fixture: {} } },
+        operations: { fixture: { test: true } },
+        packageJson: {
+          operations: { fixture: { test: true } },
+        },
         projectPath: `${__dirname}/fixture/project-a`,
         projectPkgPath: `${__dirname}/fixture/project-a/package.json`,
         taskId: "project-a",

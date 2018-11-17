@@ -1,20 +1,21 @@
 {
-  "name": "cyclops",
+  "name": "task",
   "version": "1.4.0",
-  "description": "Sentient task runner",
+  "description": "CLI for dot-event operations",
   "keywords": [
-    "task",
-    "runner"
+    "dot-event",
+    "operation",
+    "task"
   ],
-  "author": "Cyclops <oss@cyclo.ps>",
+  "author": "dot-event <oss@dot-event.io>",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/cyclops-tasks/cyclops.git"
+    "url": "git+ssh://git@github.com/dot-event/task.git"
   },
-  "main": "dist/cyclops.js",
+  "main": "dist/task.js",
   "license": "MIT",
-  "homepage": "https://github.com/cyclops-tasks/cyclops#readme",
-  "cyclops": {
+  "homepage": "https://github.com/dot-event/task#readme",
+  "operations": {
     "git": {},
     "link": {},
     "starter": {},
