@@ -1,5 +1,5 @@
-# cyclops
+# dot-task
 
-Sentient task runner.
+CLI for dot-event operations.
 
-![cyclops](https://media.giphy.com/media/OKRBncbhKEHkY/giphy.gif)
+![dot tasks](https://media.giphy.com/media/xT9IgusfDcqpPFzjdS/giphy.gif)
