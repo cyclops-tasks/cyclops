@@ -1,7 +1,7 @@
 {
-  "name": "task",
+  "name": "dot-task",
   "version": "1.4.0",
-  "description": "CLI for dot-event operations",
+  "description": "dot-event task runner operation",
   "keywords": [
     "dot-event",
     "operation",
@@ -35,12 +35,10 @@
   ],
   "dependencies": {
     "@babel/runtime": "7.1.2",
-    "@dot-store/argv": "2.3.0",
-    "@dot-store/fs": "1.6.0",
-    "@dot-store/glob": "2.3.0",
-    "@dot-store/log": "0.9.0",
-    "dot-event": "2.9.0",
-    "dot-store": "5.5.0",
+    "dot-arg": "2.3.0",
+    "dot-fs-extra": "1.6.0",
+    "dot-glob": "2.3.0",
+    "dot-logger": "0.9.0",
     "fs-extra": "7.0.1",
     "pkg-up": "2.0.0"
   },
@@ -53,6 +51,8 @@
     "@babel/preset-env": "7.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
+    "dot-event": "2.9.0",
+    "dot-store": "5.5.0",
     "eslint": "5.8.0",
     "eslint-config-prettier": "3.1.0",
     "eslint-plugin-prettier": "3.0.0",
@@ -203,13 +203,6 @@
       "<rootDir>/test/**/*Test.js"
     ],
     "testEnvironment": "node"
-  },
-  "links": {
-    "dot-event": "../../dot-event",
-    "dot-store": "../../dot-store-core",
-    "@dot-store/argv": "../dot-store-argv",
-    "@dot-store/fs": "../dot-store-fs",
-    "@dot-store/glob": "../dot-store-glob"
   },
   "watchman": {
     "triggers": [
