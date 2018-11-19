@@ -1,5 +1,5 @@
 import dotEvent from "dot-event"
-import dotStore from "dot-store"
+import dotStore from "@dot-event/store"
 
 import dotTask from "../dist/task"
 
@@ -7,7 +7,7 @@ let events, store
 
 beforeEach(() => {
   events = dotEvent()
-  store = dotStore(events)
+  store = dotStore({ events })
 
   events.setOps(
     "fixture",

@@ -1,4 +1,4 @@
-# dot-task
+# @dot-event/task
 
 dot-event operation runner
 
