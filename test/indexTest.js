@@ -18,9 +18,9 @@ beforeEach(() => {
   dotTask({ events, store })
 })
 
-async function runTask(...arg) {
+async function runTask(...argv) {
   await events.task({
-    arg,
+    argv,
     composer: ({ store }) => {
       store.set("test.composer", true)
     },
@@ -75,7 +75,7 @@ test("sets state", async () => {
   await runTask()
 
   expect(store.state).toMatchObject({
-    arg: { opts: { _: [] }, raw: [] },
+    argv: { opts: { _: [] }, raw: [] },
     task: {
       taskCount: 1,
       taskIds: ["project-a"],
