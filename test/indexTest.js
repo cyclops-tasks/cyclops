@@ -19,11 +19,12 @@ beforeEach(() => {
 })
 
 async function runTask(...argv) {
+  events.onAny("fixture", () =>
+    store.set("test.composer", true)
+  )
+
   await events.task({
     argv,
-    composer: ({ store }) => {
-      store.set("test.composer", true)
-    },
     op: "fixture",
     path: `${__dirname}/fixture`,
   })
