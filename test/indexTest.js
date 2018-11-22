@@ -33,7 +33,7 @@ async function runTask(...argv) {
 test("emits events", async () => {
   const actions = []
 
-  events.on({
+  events.onAny({
     "after.fixture": () => actions.push("after"),
     "before.fixture": () => actions.push("before"),
     fixture: () => actions.push("run"),
@@ -55,7 +55,7 @@ test("emits events", async () => {
 test("passes options to events", async () => {
   expect.assertions(1)
 
-  events.on({
+  events.onAny({
     fixture: options =>
       expect(Object.keys(options)).toEqual(
         expect.arrayContaining([
