@@ -64,7 +64,6 @@ test("passes options to events", async () => {
           "events",
           "hello",
           "store",
-          "task",
         ])
       ),
   })
