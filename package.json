@@ -1,6 +1,6 @@
 {
   "name": "@dot-event/task",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "dot-event operation runner",
   "keywords": [
     "dot-event",
@@ -51,7 +51,7 @@
     "@babel/preset-env": "7.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
-    "dot-event": "2.11.0",
+    "dot-event": "2.11.1",
     "@dot-event/store": "5.9.0",
     "eslint": "5.8.0",
     "eslint-config-prettier": "3.1.0",
