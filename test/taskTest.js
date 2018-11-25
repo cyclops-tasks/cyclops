@@ -1,6 +1,5 @@
 // Packages
 import dotEvent from "dot-event"
-import dotStore from "@dot-event/store"
 
 // Helpers
 import dotTask from "../"
@@ -17,7 +16,6 @@ beforeEach(() => {
     "fixtureTeardown"
   )
 
-  dotStore({ events })
   dotTask({ events })
 })
 
