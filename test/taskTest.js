@@ -1,13 +1,15 @@
+// Packages
 import dotEvent from "dot-event"
 import dotStore from "@dot-event/store"
 
-import dotTask from "../dist/task"
+// Helpers
+import dotTask from "../"
 
-let events, store
+// Variables
+let events
 
 beforeEach(() => {
   events = dotEvent()
-  store = dotStore({ events })
 
   events.setOps(
     "fixture",
@@ -15,12 +17,13 @@ beforeEach(() => {
     "fixtureTeardown"
   )
 
-  dotTask({ events, store })
+  dotStore({ events })
+  dotTask({ events })
 })
 
 async function runTask(...argv) {
   events.onAny("fixture", () =>
-    store.set("test.composer", true)
+    events.set("test.composer", true)
   )
 
   await events.task({
@@ -63,7 +66,6 @@ test("passes options to events", async () => {
           "event",
           "events",
           "hello",
-          "store",
         ])
       ),
   })
@@ -74,10 +76,9 @@ test("passes options to events", async () => {
 test("sets state", async () => {
   await runTask()
 
-  expect(store.state).toMatchObject({
+  expect(events.get()).toMatchObject({
     argv: { opts: { _: [] }, raw: [] },
     task: {
-      taskCount: 1,
       taskIds: ["project-a"],
       taskPackagePaths: [
         `${__dirname}/fixture/project-a/package.json`,
