@@ -1,6 +1,6 @@
 {
   "name": "@dot-event/task",
-  "version": "1.11.5",
+  "version": "1.11.6",
   "description": "dot-event operation runner",
   "keywords": [
     "dot-event",
@@ -36,11 +36,11 @@
   ],
   "dependencies": {
     "@babel/runtime": "7.1.2",
-    "@dot-event/argv": "2.10.4",
-    "@dot-event/fs": "1.11.4",
-    "@dot-event/glob": "2.8.4",
-    "@dot-event/log": "0.13.0",
-    "@dot-event/store": "6.0.3",
+    "@dot-event/argv": "2.10.5",
+    "@dot-event/fs": "1.11.5",
+    "@dot-event/glob": "2.8.5",
+    "@dot-event/log": "0.13.1",
+    "@dot-event/store": "6.0.4",
     "fs-extra": "7.0.1",
     "pkg-up": "2.0.0"
   },
@@ -53,7 +53,7 @@
     "@babel/preset-env": "7.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
-    "dot-event": "2.12.4",
+    "dot-event": "2.12.5",
     "eslint": "5.8.0",
     "eslint-config-prettier": "3.1.0",
     "eslint-plugin-prettier": "3.0.0",
