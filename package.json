@@ -1,6 +1,6 @@
 {
   "name": "@dot-event/task",
-  "version": "1.11.24",
+  "version": "1.11.25",
   "description": "dot-event operation runner",
   "keywords": [
     "dot-event",
