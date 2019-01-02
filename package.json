@@ -1,6 +1,6 @@
 {
   "name": "@dot-event/task",
-  "version": "1.11.26",
+  "version": "1.11.27",
   "description": "dot-event operation runner",
   "keywords": [
     "dot-event",
@@ -37,7 +37,7 @@
   "dependencies": {
     "@babel/runtime": "7.2.0",
     "@dot-event/argv": "2.10.9",
-    "@dot-event/fs": "1.11.28",
+    "@dot-event/fs": "1.11.29",
     "@dot-event/glob": "2.8.9",
     "@dot-event/log": "0.13.6",
     "@dot-event/store": "6.0.8",
